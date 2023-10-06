@@ -1,5 +1,5 @@
 #include "./json/json11.hpp"
-#include "DependencyInjector.hpp"
+#include "../injector/DependencyInjector.hpp"
 using namespace std;
 
 int main(int argc, char *argv[])
