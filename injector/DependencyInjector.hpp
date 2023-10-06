@@ -1,9 +1,9 @@
 #ifndef DependencyInjector_hpp
 #define DependencyInjector_hpp
-#include "./services/LanguageReaderService.hpp"
-#include "./services/DownloadService.hpp"
-#include "./constants/AppConstants.cpp"
-#include "./json/json11.hpp"
+#include "../services/LanguageReaderService.hpp"
+#include "../services/DownloadService.hpp"
+#include "../constants/AppConstants.cpp"
+#include "../json/json11.hpp"
 
 class DependencyInjector
 {
