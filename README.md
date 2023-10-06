@@ -12,4 +12,4 @@ Flags and their meanings:
 -i: install
 -v: version
 
-# Please note that for now the tool only downloads the file. The installation functionality will be added soon!
+<h3>Please note that for now the tool only downloads the file. The installation functionality will be added soon!</h3>
