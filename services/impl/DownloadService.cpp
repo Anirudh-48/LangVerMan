@@ -1,4 +1,6 @@
 #include "../DownloadService.hpp"
+#include <fstream>
+#include <sstream>
 
 DownloadService::DownloadService()
 {
@@ -10,23 +12,50 @@ void DownloadService::setLanguageJson(json11::Json languageMap)
 }
 void DownloadService::download(std::string language, std::string version)
 {
-    std::string url;
-    for (auto &item : languageMap[LANGUAGES][language][VERSIONS].array_items())
+    std::fstream file = std::fstream("path.txt");
+    std::ostringstream stringData;
+    stringData << file.rdbuf();
+    int index = -1;
+    for (int i = 0; i < stringData.str().length(); i++)
     {
-        if (item["version"] == version)
-            url = item["x64Url"].string_value();
+        if (stringData.str()[i] == ' ')
+        {
+            index = i;
+            break;
+        }
     }
-    std::cout << url;
-    system("cmd.exe /c ECHO %PROCESSOR_ARCHITECTURE% > architecture.txt");
-    if (url != "")
+    std::string path = stringData.str().substr(0, index);
+    std::string msiFilePath = path + "/" + language + "/" + language + "-" + version + ".msi";
+    if (FILE *file = std::fopen(msiFilePath.data(), "r"))
     {
-        std::string command = "mkdir " + language + " & cd " + language + " & curl -X GET \"" + url + "\" -o " + language + "-" + version + url.substr(url.size() - 4);
-        std::cout << command;
-        auto res = system(command.data());
-        std::cout << res;
+        return;
+    }
+    std::string exeFilePath = path + "/" + language + "/" + language + "-" + version + ".exe";
+    if (FILE *file = std::fopen(exeFilePath.data(), "r"))
+    {
+        return;
+    }
+    std::string url;
+    if (languageMap[LANGUAGES][language][VERSIONS].array_items().size() > 0)
+    {
+        for (auto &item : languageMap[LANGUAGES][language][VERSIONS].array_items())
+        {
+            if (item[VERSION] == version)
+                url = item["x64Url"].string_value();
+        }
+        if (url != "")
+        {
+            std::string command = "mkdir " + language + " & cd " + language + " & curl -X GET \"" + url + "\" -o " + language + "-" + version + url.substr(url.size() - 4);
+            auto res = system(command.data());
+        }
+        else
+        {
+            std::cerr << "the requested version cannot be found!";
+        }
     }
     else
     {
-        std::cerr << "the requested version cannot be found!";
+        std::cerr << "Requested Language and version cannot be found!";
+        return;
     }
 }

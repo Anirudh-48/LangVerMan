@@ -14,21 +14,6 @@
         }
       ]
     },
-    "ruby": {
-      "versions": [
-        {
-          "version": "3.2.2-1",
-          "x64Url": "https://objects.githubusercontent.com/github-production-release-asset-2e65be/78153411/14743bab-367c-4c52-ab6f-9bfa5efdd838?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230928%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230928T171255Z&X-Amz-Expires=300&X-Amz-Signature=8b7f5fa22ddb2f7e3b9e1af016706806b5bb68b90af7d0177756aade269b002b&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=78153411&response-content-disposition=attachment%3B%20filename%3Drubyinstaller-devkit-3.1.4-1-%s.exe&response-content-type=application%2Foctet-stream",
-          "x86Url": "https://objects.githubusercontent.com/github-production-release-asset-2e65be/78153411/e6f9fca3-5371-4bf8-98a6-bfc8f93a9119?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20230928%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20230928T171359Z&X-Amz-Expires=300&X-Amz-Signature=8f901346d1296c44222105fb9af81303b7def3eb3df48b7020f7f78b9a96ac03&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=78153411&response-content-disposition=attachment%3B%20filename%3Drubyinstaller-devkit-3.2.2-1-x86.exe&response-content-type=application%2Foctet-stream",
-          "tag": "latest"
-        },
-        {
-          "version": "3.1.4-1",
-          "x64Url":"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.4-1/rubyinstaller-devkit-3.1.4-1-x64.exe",
-          "x86Url":"https://github.com/oneclick/rubyinstaller2/releases/download/RubyInstaller-3.1.4-1/rubyinstaller-devkit-3.1.4-1-x64.exe"
-        }
-      ]
-    },
     "golang": {
       "versions": [
         {

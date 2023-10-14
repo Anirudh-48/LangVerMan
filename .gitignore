@@ -3,3 +3,4 @@
 *.exe
 */*.msi
 *.txt
+installs/

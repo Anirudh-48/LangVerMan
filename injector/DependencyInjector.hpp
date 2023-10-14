@@ -2,22 +2,24 @@
 #define DependencyInjector_hpp
 #include "../services/LanguageReaderService.hpp"
 #include "../services/DownloadService.hpp"
-#include "../constants/AppConstants.cpp"
+#include "../services/EnvironmentService.hpp"
+#include "../services/InstallerService.hpp"
 #include "../json/json11.hpp"
 
 class DependencyInjector
 {
 private:
-    // EnvironmentService *environmentService = NULL;
     static DependencyInjector *dependencyInjector;
+    static std::string path;
 
 protected:
     DependencyInjector();
 
 public:
     DownloadService *downloadService = NULL;
+    InstallerService *installerService = NULL;
     LanguageReaderService *languageService = NULL;
-
+    EnvironmentService *environmentService = NULL;
     static DependencyInjector *getInstance()
     {
         if (dependencyInjector == NULL)

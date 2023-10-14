@@ -1,32 +1,24 @@
-#include <iostream>
-#include <vector>
-#include "../constants/AppConstants.cpp"
+#include "../EnvironmentService.hpp"
 
-class EnvironmentService
+EnvironmentService::EnvironmentService(char *path)
 {
-private:
-    std::string environment;
+    this->environment = getenv(path);
+}
 
-public:
-    EnvironmentService(char *path = (char *)PATH)
+std::vector<std::string> EnvironmentService::getEnvironmentValues()
+{
+    std::vector<std::string> environmentPaths;
+    std::string value;
+    for (int i = 0; i < (this->environment).length(); i++)
     {
-        this->environment = getenv(path);
-    }
-    std::vector<std::string> getEnvironmentValues()
-    {
-        std::vector<std::string> environmentPaths;
-        std::string value;
-        for (int i = 0; i < (this->environment).length(); i++)
+        char c = this->environment[i];
+        if (c == ';' && value.size())
         {
-            char c = this->environment[i];
-            if (c == ';' && value.size())
-            {
-                environmentPaths.push_back(value);
-                value = "";
-            }
-            else if (c != ';')
-                value += c;
+            environmentPaths.push_back(value);
+            value = "";
         }
-        return environmentPaths;
+        else if (c != ';')
+            value += c;
     }
-};
+    return environmentPaths;
+}
