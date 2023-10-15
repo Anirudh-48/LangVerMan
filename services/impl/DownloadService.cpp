@@ -45,7 +45,7 @@ void DownloadService::download(std::string language, std::string version)
         }
         if (url != "")
         {
-            std::string command = "mkdir " + language + " & cd " + language + " & curl -X GET \"" + url + "\" -o " + language + "-" + version + url.substr(url.size() - 4);
+            std::string command = "mkdir " + language + " && cd " + language + " && curl -X GET \"" + url + "\" -o " + language + "-" + version + url.substr(url.size() - 4);
             auto res = system(command.data());
         }
         else

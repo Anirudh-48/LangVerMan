@@ -10,5 +10,6 @@ class InstallerService
 {
 public:
     void installLanguageVersion(std::string language, std::string version, bool isMsi);
+    void uninstallLanguageVersion(std::string language, std::string version, bool isMsi);
 };
 #endif
